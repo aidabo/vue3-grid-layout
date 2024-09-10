@@ -1,4 +1,5 @@
-import type { Layout } from "./utils";
+import { Layout } from './utils';
+
 export type ResponsiveLayout = {
     lg?: Layout;
     md?: Layout;

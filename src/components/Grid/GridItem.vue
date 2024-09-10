@@ -31,6 +31,8 @@ import {Props, LayoutData} from "./GridLayout.vue"
 import {Interactable} from "@interactjs/core/Interactable"
 
 import useCurrentInstance from "@/hooks/useInstance"
+import {PropsChild, Pos, WH} from "./GridItemProps"
+
 const {proxy} = useCurrentInstance()
 
 // for parent's instance
@@ -72,46 +74,6 @@ const emit = defineEmits<{
   (e: "dragging", event: MouseEvent, i: number | string): void
   (e: "dragend", event: MouseEvent, i: number | string): void
 }>()
-
-interface PropsChild {
-  isDraggable?: boolean | null
-  isResizable?: boolean | null
-  isBounded?: boolean | null
-  static?: boolean
-  minH?: number
-  minW?: number
-  maxH?: number
-  maxW?: number
-  x: number
-  y: number
-  w: number
-  h: number
-  i: string | number
-  dragIgnoreFrom?: string
-  dragAllowFrom?: string | null
-  resizeIgnoreFrom?: string
-  preserveAspectRatio?: boolean
-  dragOption?: {[key: string]: any}
-  resizeOption?: {[key: string]: any}
-}
-interface Pos {
-  left?: number
-  right?: number
-  top: number
-  width: number
-  height: number
-}
-interface WH {
-  width: number
-  height: number
-}
-// interface Placeholder {
-//   x: number
-//   y: number
-//   w: number
-//   h: number
-//   i: number | string
-// }
 
 // Props Data
 const props = withDefaults(defineProps<PropsChild>(), {
@@ -480,7 +442,7 @@ function createStyle() {
 function emitContainerResized() {
   // this.style has width and height with trailing 'px'. The
   // resized event is without them
-  let styleProps = {} as WH
+  let styleProps: any = {} as WH
   for (let prop of ["width", "height"]) {
     let val = styleObj.value[prop]
     let matches = val.match(/^(\d+)px$/)
@@ -972,6 +934,7 @@ defineExpose({
   ...props
 })
 </script>
+
 <style>
 .vue-grid-item {
   transition: all 200ms ease;

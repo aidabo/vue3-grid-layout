@@ -1,85 +1,21 @@
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-    x: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    y: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    w: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    h: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    i: {
-        type: import("vue").PropType<string | number>;
-        required: true;
-    };
-    isDraggable: {
-        type: import("vue").PropType<boolean | null>;
-        default: null;
-    };
-    isResizable: {
-        type: import("vue").PropType<boolean | null>;
-        default: null;
-    };
-    isBounded: {
-        type: import("vue").PropType<boolean | null>;
-        default: null;
-    };
-    static: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-    minH: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    minW: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    maxH: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    maxW: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    dragIgnoreFrom: {
-        type: import("vue").PropType<string>;
-        default: string;
-    };
-    dragAllowFrom: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
-    resizeIgnoreFrom: {
-        type: import("vue").PropType<string>;
-        default: string;
-    };
-    preserveAspectRatio: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-    dragOption: {
-        type: import("vue").PropType<{
-            [key: string]: any;
-        }>;
-        default: () => {};
-    };
-    resizeOption: {
-        type: import("vue").PropType<{
-            [key: string]: any;
-        }>;
-        default: () => {};
-    };
-}, {
+import { PropsChild, Pos } from './GridItemProps';
+
+declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<PropsChild>, {
+    isDraggable: null;
+    isResizable: null;
+    isBounded: null;
+    static: boolean;
+    minH: number;
+    minW: number;
+    maxH: number;
+    maxW: number;
+    dragIgnoreFrom: string;
+    dragAllowFrom: null;
+    resizeIgnoreFrom: string;
+    preserveAspectRatio: boolean;
+    dragOption: () => {};
+    resizeOption: () => {};
+}>>, {
     x: number;
     y: number;
     w: number;
@@ -108,14 +44,20 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         x: number;
         y: number;
     };
-    dragging: import("vue").Ref<{
+    dragging: import('vue').Ref<{
+        left?: number | undefined;
+        right?: number | undefined;
+        top: number;
+        width: number;
+        height: number;
+    } | null, Pos | {
         left?: number | undefined;
         right?: number | undefined;
         top: number;
         width: number;
         height: number;
     } | null>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "container-resized": (i: string | number, h: number, w: number, height: number, width: number) => void;
     resize: (i: string | number, h: number, w: number, height: number, width: number) => void;
     resized: (i: string | number, h: number, w: number, height: number, width: number) => void;
@@ -123,88 +65,22 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     moved: (i: string | number, x: number, y: number) => void;
     dragging: (event: MouseEvent, i: string | number) => void;
     dragend: (event: MouseEvent, i: string | number) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    x: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    y: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    w: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    h: {
-        type: import("vue").PropType<number>;
-        required: true;
-    };
-    i: {
-        type: import("vue").PropType<string | number>;
-        required: true;
-    };
-    isDraggable: {
-        type: import("vue").PropType<boolean | null>;
-        default: null;
-    };
-    isResizable: {
-        type: import("vue").PropType<boolean | null>;
-        default: null;
-    };
-    isBounded: {
-        type: import("vue").PropType<boolean | null>;
-        default: null;
-    };
-    static: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-    minH: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    minW: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    maxH: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    maxW: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    dragIgnoreFrom: {
-        type: import("vue").PropType<string>;
-        default: string;
-    };
-    dragAllowFrom: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
-    resizeIgnoreFrom: {
-        type: import("vue").PropType<string>;
-        default: string;
-    };
-    preserveAspectRatio: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-    dragOption: {
-        type: import("vue").PropType<{
-            [key: string]: any;
-        }>;
-        default: () => {};
-    };
-    resizeOption: {
-        type: import("vue").PropType<{
-            [key: string]: any;
-        }>;
-        default: () => {};
-    };
-}>> & {
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<PropsChild>, {
+    isDraggable: null;
+    isResizable: null;
+    isBounded: null;
+    static: boolean;
+    minH: number;
+    minW: number;
+    maxH: number;
+    maxW: number;
+    dragIgnoreFrom: string;
+    dragAllowFrom: null;
+    resizeIgnoreFrom: string;
+    preserveAspectRatio: boolean;
+    dragOption: () => {};
+    resizeOption: () => {};
+}>>> & Readonly<{
     onDragend?: ((event: MouseEvent, i: string | number) => any) | undefined;
     onResize?: ((i: string | number, h: number, w: number, height: number, width: number) => any) | undefined;
     "onContainer-resized"?: ((i: string | number, h: number, w: number, height: number, width: number) => any) | undefined;
@@ -212,7 +88,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     onMove?: ((i: string | number, x: number, y: number) => any) | undefined;
     onMoved?: ((i: string | number, x: number, y: number) => any) | undefined;
     onDragging?: ((event: MouseEvent, i: string | number) => any) | undefined;
-}, {
+}>, {
     isDraggable: boolean | null;
     isResizable: boolean | null;
     isBounded: boolean | null;
@@ -231,12 +107,29 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     resizeOption: {
         [key: string]: any;
     };
-}, {}>, {
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>, {
     default?(_: {
         style: any;
     }): any;
 }>;
 export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToRuntimeProps<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
+type __VLS_WithDefaults<P, D> = {
+    [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify<P[K] & {
+        default: D[K];
+    }> : P[K];
+};
+type __VLS_Prettify<T> = {
+    [K in keyof T]: T[K];
+} & {};
 type __VLS_WithTemplateSlots<T, S> = T & {
     new (): {
         $slots: S;
